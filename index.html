@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay B- Portfolio</title>
+    <meta name="description" content="Full Stack Developer specializing in React, Python, Java, and modern web technologies.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="pp.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+       <div class="hero-bg">
+          <div class="hero-circle hero-circle-1"></div>
+           <div class="hero-circle hero-circle-2"></div>
+        </div>
+       <div class="hero-content">
+           <div class="hero-profile-image-container">
+              <img src="pp.jpg" alt="Ajay B - Profile Picture" class="hero-profile-img">
+           </div>
+          <h1 class="hero-title">Ajay B</h1>
+          <p class="hero-subtitle">Aspiring Web Developer crafting digital experiences using modern technologies | 3rd Year CSE Student</p>
+          <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="scrollToSection('about')">
+                  Explore My Work
+                  <span class="btn-icon">↓</span>
+              </button>
+              <button class="btn btn-outline" onclick="downloadResume()">
+                    <span class="btn-icon">⬇</span> Download Resume
+              </button>
+
+           </div>
+       </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <p class="about-text">
+                    I'm a dedicated web developer currently pursuing my 3rd year in Computer Science Engineering. I thrive on solving problems through code and building user-focused web applications. My current tech stack includes JavaScript, React, Node.js, and MongoDB, and I’m constantly learning and exploring new tools and frameworks.
+                </p>
+                <p class="about-text">
+                    Outside of coding, I enjoy learning about new technologies, building side projects, contributing to open-source when I can, and engaging with the tech community.
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-skill="python">
+                <div class="skill-icon"><i class="fab fa-python"></i></div> <h3 class="skill-name">Python</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="55"></div>
+                </div>
+                <span class="skill-level">55%</span>
+            </div>
+            <div class="skill-card" data-skill="html">
+                <div class="skill-icon"><i class="fab fa-html5"></i></div> <h3 class="skill-name">HTML</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="60"></div>
+                </div>
+                <span class="skill-level">60%</span>
+            </div>
+            <div class="skill-card" data-skill="css">
+                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div> <h3 class="skill-name">CSS</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="65"></div>
+                </div>
+                <span class="skill-level">65%</span>
+            </div>
+            <div class="skill-card" data-skill="javascript">
+                <div class="skill-icon"><i class="fab fa-js"></i></div> <h3 class="skill-name">JavaScript</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="40"></div>
+                </div>
+                <span class="skill-level">40%</span>
+            </div>
+            <div class="skill-card" data-skill="java">
+                <div class="skill-icon"><i class="fab fa-java"></i></div> <h3 class="skill-name">Java</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="50"></div>
+                </div>
+                <span class="skill-level">50%</span>
+            </div>
+            <div class="skill-card" data-skill="c">
+                <div class="skill-icon"><i class="fas fa-code"></i></div> <h3 class="skill-name">C</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="45"></div>
+                </div>
+                <span class="skill-level">45%</span>
+            </div>
+            <div class="skill-card" data-skill="react">
+                <div class="skill-icon"><i class="fab fa-react"></i></div> <h3 class="skill-name">React</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="40"></div>
+                </div>
+                <span class="skill-level">40%</span>
+            </div>
+            <div class="skill-card" data-skill="sql">
+                <div class="skill-icon"><i class="fas fa-database"></i></div> <h3 class="skill-name">SQL</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-level="55"></div>
+                </div>
+                <span class="skill-level">55%</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">👨‍⚕️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pharmacy Bot</h3>
+                        <p class="project-description">Genrate medicines based on user input using Java</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ajay-004/java" target="_blank" rel="noopener noreferrer">
+                              <button class="btn btn-small btn-outline">
+                                  <span class="btn-icon">📁</span>
+                                 Code
+                             </button>
+                           </a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🤖</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI ChatBot</h3>
+                        <p class="project-description">Interactive chatbot using MERN</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node js</span>
+                            <span class="tech-tag">Mongo DB</span>
+                            <span class="tech-tag">Express js</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-links">
+                           <a href="https://github.com/Ajay-004/GEN" target="_blank" rel="noopener noreferrer">
+                              <button class="btn btn-small btn-outline">
+                                  <span class="btn-icon">📁</span>
+                                 Code
+                             </button>
+                           </a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">👤</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clean Portflio</h3>
+                        <p class="project-description">My portfolio showcases a blend of frontend elegance </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ajay-004/portflio" target="_blank" rel="noopener noreferrer">
+                              <button class="btn btn-small btn-outline">
+                                  <span class="btn-icon">📁</span>
+                                 Code
+                             </button>
+                           </a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+         <h2 class="section-title">Get In Touch</h2>
+         <p class="contact-description">
+            I'm always open to discussing new opportunities and interesting projects. 
+            Let's connect and create something amazing together!
+          </p>
+          <div class="contact-buttons">
+              <a href="mailto:ajay44548686@gmail.com" class="btn btn-outline"> 
+                 <i class="fas fa-envelope"></i> Email Me
+              </a>
+             <a href="https://www.linkedin.com/in/ajay-b-25a295292" target="_blank" class="btn btn-outline"> <i class="fab fa-linkedin"></i> LinkedIn
+             </a>
+             <a href="https://github.com/Ajay-004" target="_blank" class="btn btn-outline"> <i class="fab fa-github"></i> GitHub
+             </a>
+          </div>
+      </div>
+  </section>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
