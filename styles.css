@@ -227,6 +227,7 @@ p {
     box-shadow: 0 10px 30px hsla(210, 100%, 50%, 0.3); /* Prominent shadow */
     animation: fadeInScale 1.5s ease-out forwards; /* Fade in and scale up on load */
     transition: transform 0.3s ease-in-out; /* Transition for hover effect */
+    
 }
 
 .hero-profile-img:hover {
@@ -429,15 +430,6 @@ p {
     width: 0; /* Initial width for animation */
     transition: width 2s ease-out; /* Smooth animation for progress */
 }
-/* Specific widths for skill progress bars (from JS for animation) */
-.skill-card[data-skill="python"] .skill-progress { width: 90%; }
-.skill-card[data-skill="html"] .skill-progress { width: 95%; }
-.skill-card[data-skill="css"] .skill-progress { width: 90%; }
-.skill-card[data-skill="javascript"] .skill-progress { width: 85%; }
-.skill-card[data-skill="java"] .skill-progress { width: 85%; }
-.skill-card[data-skill="c"] .skill-progress { width: 80%; }
-.skill-card[data-skill="react"] .skill-progress { width: 95%; }
-.skill-card[data-skill="sql"] .skill-progress { width: 88%; }
 
 .skill-level {
     font-size: 0.875rem;
