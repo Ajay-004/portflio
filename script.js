@@ -8,8 +8,9 @@ function scrollToSection(sectionId) {
 
 // Download resume from Google Drive
 function downloadResume() {
-  window.open('https://drive.google.com/file/d/1IUzrs9tG35QfXW96yVS4_GDMEtfgm4ND/view?usp=drivesdk', '_blank');
+  window.location.href = 'https://drive.google.com/uc?export=download&id=1JcwcGYYbrt417MQUmh7Xv1gGpfXbuSaw';
 }
+
 
 // Animate skill bars when they come into view
 function animateSkillBars() {
