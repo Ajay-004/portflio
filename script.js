@@ -8,9 +8,8 @@ function scrollToSection(sectionId) {
 
 // Download resume from Google Drive
 function downloadResume() {
-  window.location.href = 'https://drive.google.com/uc?export=download&id=1JcwcGYYbrt417MQUmh7Xv1gGpfXbuSaw';
+  window.location.href = 'https://drive.google.com/file/d/1kMt4slz66-H05G2InXRXs00Bex828qm6/view?usp=drivesdk';
 }
-
 
 // Animate skill bars when they come into view
 function animateSkillBars() {
@@ -62,6 +61,12 @@ function typeWriter(element, text, delay = 100) {
 
 // Floating brand animation + other effects on load
 document.addEventListener('DOMContentLoaded', () => {
+  // Attach click event to Download CV button
+  const downloadBtn = document.querySelector('button.btn.btn-outline');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', downloadResume);
+  }
+
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -80,3 +85,4 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.style.animation = 'bounce 2s infinite';
   });
 });
+
