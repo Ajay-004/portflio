@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay B - Portfolio</title>
+    
+    <meta name="description" content="Computer Science student building full-stack web applications for agriculture, tourism, and data analysis.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="icon" href="https://i.postimg.cc/NF5H1jCG/potflio.jpg">
+
+    <style>
+        /* --- 1. Variables and Global Styles --- */
+        :root {
+            --primary-color: #6366F1; /* Bright purple accent */
+            --primary-hover: #4F46E5;
+            --bg-main: #0F172A; /* Main background (Dark Blue/Black) */
+            --bg-card: #1E293B; /* Card/Nav background (Lighter Blue/Gray) */
+            --text-primary: #F1F5F9; /* Primary text (Near White) */
+            --text-secondary: #9CA3AF; /* Muted text (Gray) */
+            --border-color: #334155; /* Border color (Dark Gray) */
+            --tech-tag-bg: #312E81; /* Dark purple */
+            --tech-tag-text: #C7D2FE; /* Light purple */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            perspective: 1000px; 
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-card);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+
+        /* --- 2. Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            font-size: 1.1em;
+        }
+
+        /* --- 3. Navigation --- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(30, 41, 59, 0.85); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        /* --- 4. Hero Section --- */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            text-align: center;
+            overflow: hidden;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 1rem;
+        }
+        
+        /* Hero Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-profile-image-container {
+            opacity: 0; 
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        .hero-title {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        .hero-subtitle {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        .hero-tagline {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+        .hero-buttons {
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+        }
+        /* End Hero Animations */
+
+        .hero-profile-image-container {
+            width: 200px;
+            height: 200px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto 1.5rem;
+            border-radius: 12%; /* Slightly rounded square */
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.7);
+            transition: transform 0.5s ease-out;
+            transform-style: preserve-3d;
+        }
+        .hero-profile-image-container:hover {
+            transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.9);
+        }
+
+        .hero-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .hero-buttons .btn-outline {
+             color: var(--text-primary);
+             border-color: var(--text-primary);
+        }
+        .hero-buttons .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-main);
+        }
+
+        /* --- 5. About Section --- */
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .about-text:first-child {
+            margin-bottom: 1rem;
+        }
+
+        /* --- 6. Skills Section --- */
+        .skill-group-title {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .skill-group-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-main);
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-out, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 1;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px) rotateX(5deg) rotateY(5deg) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .skill-card .skill-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-card .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* --- 7. Projects Section --- */
+        .project-case-study {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.5s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 1;
+        }
+        .project-case-study:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+            z-index: 2;
+        }
+
+        .project-case-study:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-case-study.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .project-image-large {
+            flex: 1.2;
+        }
+
+        .project-image-large img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-content-large {
+            flex: 1;
+        }
+
+        .project-content-large .project-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-content-large .project-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background-color: var(--tech-tag-bg);
+            color: var(--tech-tag-text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .project-links .btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-links .btn i {
+             margin-right: 0.25rem;
+        }
+
+        /* --- 8. Contact Section --- */
+        .contact-description {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .contact-buttons .btn {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .contact-buttons .btn:hover {
+            background: var(--bg-main);
+            border-color: var(--border-color);
+            transform: translateY(-2px);
+        }
+        
+        .contact-buttons .btn i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* --- 9. Scroll Animations (NO BLUR) --- */
+        .hidden-anim {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .show-anim {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 10. Responsive Design --- */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle, .hero-tagline {
+                font-size: 1.1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0 1rem;
+            }
+
+            .hero-profile-image-container {
+                width: 120px;
+                height: 120px;
+            }
+            .hero-profile-image-container:hover {
+                transform: none;
+            }
+
+            .project-case-study,
+            .project-case-study.reverse {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .project-case-study:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+            .project-content-large .project-title {
+                font-size: 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .skill-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">AJAY B</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-profile-image-container">
+                <img src="https://i.postimg.cc/NF5H1jCG/potflio.jpg" 
+                     alt="Ajay B - Profile Picture" 
+                     class="hero-profile-img">
+            </div>
+            <h1 class="hero-title">AJAY B</h1>
+            <p class="hero-subtitle">Computer Science Student</p>
+            <p class="hero-tagline">
+                I build web applications that tackle real-world challenges in agriculture, tourism, and data analysis.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                    Explore My Work
+                    <span class="btn-icon">↓</span>
+                </button>
+                <button class="btn btn-outline" onclick="downloadResume()">
+                    <span class="btn-icon">⬇</span> Download CV
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="hidden-anim">
+                <h2 class="section-title">About Me</h2>
+                <div class="card">
+                    <p class="about-text">
+                        I'm a Computer Science student with a passion for building complete web applications from start to finish. I enjoy using technologies like the MERN stack (MongoDB, Express, Node.js) and Java to create tools that solve real-world problems.
+                    </p>
+                    <p class="about-text">
+                        My goal is to learn how to build scalable, efficient, and useful applications. I'm always working on side projects to learn new technologies and improve my skills.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title hidden-anim">My Projects</h2>
+            
+            <div class="project-case-study hidden-anim">
+                <div class="project-image-large">
+                    <img src="pro3.png" alt="FarmWise App Mockup">
+                </div>
+                <div class="project-content-large">
+                    <h3 class="project-title">FarmWise: Farmer's Assistant App</h3>
+                    <p class="project-description">
+                        A full-stack MERN application designed as a complete assistant for farmers. Key features include an <strong>AI-powered chatbot with multi-language support</strong>, a <strong>crop disease diagnosis</strong> tool, localized <strong>weather prediction</strong>, and a <strong>farmer community forum</strong>.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">AI Chatbot</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://tcrafters-ni9u.onrender.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> View Website
+                        </a>
+                        <a href="https://github.com/Ajay-004/main" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-case-study reverse hidden-anim">
+                <div class="project-content-large">
+                    <h3 class="project-title">Incredible India: AI Trip Planner</h3>
+                    <p class="project-description">
+                        An all-India tourism portal to simplify travel planning. This application features an <strong>AI-powered map</strong>, an intelligent <strong>tourist place finder</strong>, and an automated <strong>AI trip planner</strong> to generate custom itineraries for users.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">AI API</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://incredible-india-osvl.onrender.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> View Website
+                        </a>
+                        <a href="https://github.com/Ajay-004/Toursim" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="project-image-large">
+                    <img src="pro2.png" alt="Incredible India Mockup">
+                </div>
+            </div>
+
+            <div class="project-case-study hidden-anim">
+                <div class="project-image-large">
+                    <img src="pro1.png" alt="DPR Analyzer Mockup">
+                </div>
+                <div class="project-content-large">
+                    <h3 class="project-title">AI-Powered DPR Analyzer</h3>
+                    <p class="project-description">
+                        An intelligent tool that analyzes <strong>Detailed Project Report (DPR)</strong> files. Users upload a DPR in PDF format, and the <strong>AI engine processes the document</strong> to extract key data, summarize complex sections, and provide a concise analysis of the report's content.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">PDF Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://modner.onrender.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> View Website
+                        </a>
+                        <a href="https://github.com/Ajay-004/DPR" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title hidden-anim">My Tech Stack</h2>
+            
+            <h3 class="skill-group-title hidden-anim">Backend</h3>
+            <div class="skills-grid hidden-anim">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <h3 class="skill-name">Node.js</h3>
+                </div>
+                <div class="skill-card" data-skill="express">
+                    <div class="skill-icon" style="font-size: 2.5rem; font-weight: 600; color: var(--text-primary);">Express.js</div>
+                    <h3 class="skill-name">Express.js</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <h3 class="skill-name">Java</h3>
+                </div>
+            </div>
+
+            <h3 class="skill-group-title hidden-anim">Frontend</h3>
+            <div class="skills-grid hidden-anim">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <h3 class="skill-name">JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <h3 class="skill-name">HTML5</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                    <h3 class="skill-name">CSS3</h3>
+                </div>
+            </div>
+            
+            <h3 class="skill-group-title hidden-anim">Database & Tools</h3>
+            <div class="skills-grid hidden-anim">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-leaf"></i></div>
+                    <h3 class="skill-name">MongoDB</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="skill-name">SQL</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <h3 class="skill-name">Git & GitHub</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+           <h2 class="section-title hidden-anim">Get In Touch</h2>
+           <p class="contact-description hidden-anim">
+             I'm always open to discussing new opportunities and interesting projects. 
+             Let's connect and create something amazing together!
+           </p>
+           <div class="contact-buttons hidden-anim">
+               <a href="mailto:ajay44548686@gmail.com" class="btn"> 
+                   <i class="fas fa-envelope"></i> Email Me
+               </a>
+               <a href="https://www.linkedin.com/in/ajay-b-25a295292" target="_blank" rel="noopener noreferrer" class="btn">
+                   <i class="fab fa-linkedin"></i> LinkedIn
+               </a>
+               <a href="https://github.com/Ajay-004" target="_blank" rel="noopener noreferrer" class="btn">
+                   <i class="fab fa-github"></i> GitHub
+               </a>
+           </div>
+      </div>
+    </section>
+    
+    <script>
+        // --- Force page to top on load ---
+        // This prevents the browser from auto-scrolling to a previous
+        // position (like #contact) on refresh.
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('load', () => window.scrollTo(0, 0));
+        // --- End of refresh fix ---
+
+
+        /**
+         * Smoothly scrolls to a given section.
+         */
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const yOffset = -60; 
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        }
+
+        /**
+         * Triggers a download for the resume.
+         * THIS FUNCTION IS UPDATED TO FIX THE GOOGLE DRIVE LINK.
+         */
+        function downloadResume() {
+            // Your original link:
+            // 'https://drive.google.com/file/d/12PA-kSpRfhCcfaZjs4KuRq-n_NGWjbN2/view?usp=drivesdk'
+            
+            // This is the direct download link format for Google Drive
+            const downloadUrl = 'https://drive.google.com/uc?export=download&id=12PA-kSpRfhCcfaZjs4KuRq-n_NGWjbN2';
+            
+            // This will open a new tab and Google will trigger the download
+            window.open(downloadUrl, '_blank');
+        }
+        
+        // --- Intersection Observer for Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-anim');
+                } else {
+                    // Optional: entry.target.classList.remove('show-anim'); for re-animation
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden-anim');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+
+        // --- Optional: Add active state to nav links on scroll ---
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
